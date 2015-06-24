@@ -12,12 +12,32 @@ class ImagesController < ApplicationController
   end
 
   def create
-    @image = Images.new(image_params)
+    @image = Image.new(image_params)
     if @image.save
       redirect_to images_url
     else
       render :new
     end
+  end
+
+  def edit
+    @image = Image.find(params[:id])
+  end
+
+  def update
+    @image = Image.find(params[:id])
+
+    if @image.update_attributes(image_params)
+      redirect_to "/images/#{@image.id}"
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @image = Image.find(params[:id])
+    @image.destroy
+    redirect_to images_url
   end
 
   private
