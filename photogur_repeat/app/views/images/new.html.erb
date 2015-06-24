@@ -1,0 +1,23 @@
+<h1>Add a picture</h1>
+<%= link_to "Back to All Pictures", images_url %>
+<%= form_for @image do |i| %>
+  <p>
+    <%= i.label :artist %><br>
+    <%= i.text_field :artist %>
+  </p>
+  <p>
+    <%= i.label :title %><br>
+    <%= i.text_field :title %>
+  </p>
+  <p>
+    <%= i.label :description %><br>
+    <%= i.text_field :description %>
+  </p>
+  <p>
+    <%= i.label :url %><br>
+    <%= i.text_field :url %>
+  </p>
+  <p>
+    <%= i.submit "Save" %>
+  </p>
+<% end %>

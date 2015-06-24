@@ -1,2 +1,8 @@
 <h1>WELCOME TO PHOTOGUR</h1>
-<h2>All Pictures</h2>
+<h2>All Pictures <%= @images.length %></h2>
+<%= link_to "Add a New Picture", "/images/new" %>
+
+<% @images.each do |image| %>
+  <p><%= image.title %>, <%= image.artist %></p>
+  <%= link_to image_tag(image.url), "/images/#{image.id}" %>
+<% end %>
